@@ -1,9 +1,8 @@
-<form>
-  {{toString()}}
+<form class="form-horizontal">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" required [(ngModel)]="model.name">
-    TODO: remove this {{model.name}}
+    <input type="text" class="form-control" required [(ngModel)]="model.name" ngControl="name" #heroname>
+    TODO: class of Hero: {{heroname.className}}
   </div>
   <div class="form-group">
      <label for="alterGo">AlterGo</label>
@@ -11,8 +10,8 @@
   </div>
   <div class="form-group">
     <label for="power">Hero Power</label>
-    <select class="form-control" required>
-      <option *ngFor="let p of powers" [value]="p" [(ngModel)]="model.power">{{p}}</option>
+    <select class="form-control" required [(ngModel)]="model.power">
+      <option *ngFor="let p of powers" [value]="p">{{p}}</option>
     </select>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
