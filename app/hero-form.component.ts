@@ -1,7 +1,7 @@
 /**
  * Created by peter on 16-5-10.
  */
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/common';
 
 import {Hero} from "./hero";
@@ -12,7 +12,11 @@ import {PowerService} from "./power.service";
   templateUrl: 'app/hero-form.component.html',
   providers : [PowerService]
 })
-export class HeroFormComponent {
+export class HeroFormComponent implements OnInit {
+
+  ngOnInit() {
+    console.log("heroform component initialized.");
+  }
 
   constructor(private powerService : PowerService) {
     this.powers = powerService.getAllPowers();
@@ -27,7 +31,7 @@ export class HeroFormComponent {
   newHero() {
      this.model = new Hero(100, '', '', '');
      this.active = false;
-     setTimeout(()=>this.active=true, 0);
+     setTimeout(()=>this.active=true, 20000);
   }
 
   onSubmit() {

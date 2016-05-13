@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 
-import {HeroFormComponent} from './hero-form.component';
+import {HttpTestComponent} from './http/http-test.component';
 
 @Component({
     selector: 'my-app',
     template: `
        <div class="container">
-           <hero-form></hero-form>
+           <http-test></http-test>
        </div>
     `,
-    directives: [HeroFormComponent]
+    directives: [HttpTestComponent]
 })
 export class AppComponent { }
