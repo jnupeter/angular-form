@@ -14,6 +14,7 @@ import { By }             from '@angular/platform-browser';
 import { provide }        from '@angular/core';
 import { ViewMetadata }   from '@angular/core';
 import { PromiseWrapper } from '@angular/core/src/facade/promise';
+import { Title } from '@angular/platform-browser';
 
 ////////  SPECS  /////////////
 
@@ -26,7 +27,7 @@ describe('Smoke test', () => {
 
 describe('AppComponent with new', function () {
   it('should instantiate component', () => {
-    expect(new AppComponent()).toBeDefined('Whoopie!');
+    expect(new AppComponent(new Title())).toBeDefined('Whoopie!');
   });
 });
 

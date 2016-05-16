@@ -5,6 +5,6 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'other',
-  template: '<div>Other component</div>'
+  template: '<div>other component</div>'
 })
 export class OtherComponent {}
