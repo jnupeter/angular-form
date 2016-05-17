@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {Post} from './post';
 import {PostService} from './post.service';
+
 
 @Component({
     selector : 'post-list',
@@ -8,7 +9,7 @@ import {PostService} from './post.service';
         <div *ngIf="isLoading"> Loading data ....</div>
         <div *ngIf="!isLoading">
             <ul class="list-group">
-                <li *ngFor="let post of posts" class="list-group-item">{{post.title}}</li>
+                <li *ngFor="let post of posts" (click)="emitPost(post)" class="list-group-item">{{post.title}}</li>
             </ul>
         </div>
     `,
@@ -21,6 +22,8 @@ export class PostListComponent implements OnInit {
 
     }
 
+    @Output() onSelected = new EventEmitter<Post>();
+    
     posts : Post[] = [];
 
     ngOnInit() {
@@ -30,4 +33,9 @@ export class PostListComponent implements OnInit {
             () => {this.isLoading = false;}
         );
     }
+  
+    emitPost(_post : Post) {
+      this.onSelected.emit(_post);
+    }
+  
 }

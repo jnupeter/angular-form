@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {PostListComponent} from "./post-list.component";
 import {PostDetailComponent} from "./post-detail.component";
+import {Post} from './post';
 
 @Component({
     selector: 'post',
@@ -8,10 +9,10 @@ import {PostDetailComponent} from "./post-detail.component";
         <h2>Post<h2>
         <div class="container">
            <div class="col-lg-6">
-               <post-list></post-list>
+               <post-list (onSelected)="select($event)"></post-list>
            </div>
            <div class="col-lg-6">
-               <post-detail></post-detail>
+               <post-detail *ngIf="selectedPost" [post]="selectedPost"></post-detail>
            </div>
         </div>
 
@@ -20,4 +21,9 @@ import {PostDetailComponent} from "./post-detail.component";
 })
 export class PostComponent {
 
+  selectedPost : Post = new Post();
+
+  select(_post : Post) {
+    this.selectedPost = _post;
+  }
 }

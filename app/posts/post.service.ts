@@ -17,4 +17,9 @@ export class PostService {
         return this._http.get(this._url)
         .map(res => res.json());
     }
+  
+    getPost(post : Post) : Observable<Post> {
+         return this._http.get(this._url + '/' + post.id)
+           .map(res => res.json());
+    }
 }
