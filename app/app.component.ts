@@ -6,6 +6,7 @@ import {HeroFormComponent} from "./hero-form.component";
 import {OtherComponent} from "./other.component";
 import {Title} from '@angular/platform-browser';
 import {GithubProfileComponent} from "./github/github-profile.component";
+import {PostComponent} from "./posts/post.component";
 
 @Component({
     selector: 'my-app',
@@ -16,6 +17,7 @@ import {GithubProfileComponent} from "./github/github-profile.component";
        <a [routerLink]="['HttpTest']" (click)="setTitle('HttpTest')">Http Test</a>
        <a [routerLink]="['Others']" (click)="setTitle('Others')">Others</a>
        <a [routerLink]="['Github']" (click)="setTitle('Github')">Github</a>
+       <a [routerLink]="['Posts']">Posts</a>
 </nav>
        <div class="container">
            <router-outlet></router-outlet>
@@ -27,7 +29,8 @@ import {GithubProfileComponent} from "./github/github-profile.component";
   {path: '/forms', name: 'Forms', component: HeroFormComponent},
   {path: '/httptest', name: 'HttpTest', component: HttpTestComponent},
   {path: '/other', name: 'Others', component: OtherComponent, useAsDefault: true},
-    {path: '/github', name: 'Github', component: GithubProfileComponent}
+    {path: '/github', name: 'Github', component: GithubProfileComponent},
+    {path: '/posts', name: 'Posts', component: PostComponent}
 ])
 export class AppComponent {
   constructor(private titleService: Title) {

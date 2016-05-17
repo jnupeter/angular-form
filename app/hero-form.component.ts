@@ -3,16 +3,16 @@
  */
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/common';
-
 import {Hero} from "./hero";
 import {PowerService} from "./power.service";
+import {CanDeactivate, ComponentInstruction} from "@angular/router-deprecated";
 
 @Component({
   selector : 'hero-form',
   templateUrl: 'app/hero-form.component.html',
   providers : [PowerService]
 })
-export class HeroFormComponent implements OnInit {
+export class HeroFormComponent implements OnInit, CanDeactivate {
 
   ngOnInit() {
     console.log("heroform component initialized.");
@@ -37,5 +37,9 @@ export class HeroFormComponent implements OnInit {
   onSubmit() {
     console.log(this.model);
     this.submitted = true;
+  }
+
+  routerCanDeactivate(next : ComponentInstruction, previous : ComponentInstruction) : any {
+    return confirm("are you sure?");
   }
 }

@@ -7,15 +7,10 @@ import {Item} from "./Item.model";
     template :`
       
       <button class="btn btn-primary" (click)="getDataBackFromServer()">Http Get</button>
-      What is back? 
-      <table class="table table-striped">
-      <thead><tr><td>title</td><td>content</td></tr></thead>
-         <tbody>
-         <tr *ngFor="let item of backData">
-           <td>{{item.title}}</td><td>{{item.body}}</td>
-</tr>
-</tbody>
-</table>
+
+      <ul class="list-group">
+            <li *ngFor="let item of backData" class="list-group-item">{{item.title}}</li>
+      </ul>
     `,
     providers: [HttpTestService]
 })

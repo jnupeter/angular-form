@@ -31,7 +31,7 @@ export class GithubProfileComponent implements OnInit {
     isLoading = true;
     private username = 'octocat';
     user = {};
-    followers = [];
+    followers : any[] = [];
     constructor(private _githubService: GithubService) {
 
     }
