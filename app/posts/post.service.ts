@@ -18,8 +18,8 @@ export class PostService {
         .map(res => res.json());
     }
   
-    getPost(post : Post) : Observable<Post> {
-         return this._http.get(this._url + '/' + post.id)
+    getPost(postId : string) : Observable<Post> {
+         return this._http.get(this._url + '/' + postId)
            .map(res => res.json());
     }
 }

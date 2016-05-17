@@ -7,6 +7,8 @@ import {OtherComponent} from "./other.component";
 import {Title} from '@angular/platform-browser';
 import {GithubProfileComponent} from "./github/github-profile.component";
 import {PostComponent} from "./posts/post.component";
+import {PostDetailComponent} from './posts/post-detail.component';
+import {PostListComponent} from "./posts/post-list.component";
 
 @Component({
     selector: 'my-app',
@@ -30,7 +32,8 @@ import {PostComponent} from "./posts/post.component";
   {path: '/httptest', name: 'HttpTest', component: HttpTestComponent},
   {path: '/other', name: 'Others', component: OtherComponent, useAsDefault: true},
     {path: '/github', name: 'Github', component: GithubProfileComponent},
-    {path: '/posts', name: 'Posts', component: PostComponent}
+    {path: '/posts', name: 'Posts', component: PostComponent},
+  {path : '/posts/:id', name: 'PostDetail', component : PostDetailComponent}
 ])
 export class AppComponent {
   constructor(private titleService: Title) {

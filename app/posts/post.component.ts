@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {PostListComponent} from "./post-list.component";
-import {PostDetailComponent} from "./post-detail.component";
+import {PostDetailComponent} from './post-detail.component';
 import {Post} from './post';
+import {Router, RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 @Component({
     selector: 'post',
@@ -12,18 +13,19 @@ import {Post} from './post';
                <post-list (onSelected)="select($event)"></post-list>
            </div>
            <div class="col-lg-6">
-               <post-detail *ngIf="selectedPost" [post]="selectedPost"></post-detail>
+                  <router-outlet></router-outlet>
            </div>
         </div>
 
     `,
-    directives : [PostListComponent, PostDetailComponent]
+    directives : [PostListComponent, ROUTER_DIRECTIVES]
 })
 export class PostComponent {
 
-  selectedPost : Post = new Post();
+  constructor(private router : Router) {}
 
-  select(_post : Post) {
-    this.selectedPost = _post;
+  select(post : Post) {
+    console.log('==================' + post.id);
+    this.router.navigate(['PostDetail', {id : post.id}]);
   }
 }
