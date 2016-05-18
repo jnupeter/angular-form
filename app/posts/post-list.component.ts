@@ -7,11 +7,11 @@ import {PostService} from './post.service';
     selector : 'post-list',
     template: `
         <div *ngIf="isLoading"> Loading data ....</div>
-        <div *ngIf="!isLoading">
-            <ul class="list-group">
+
+            <ul class="list-group" *ngIf="!isLoading">
                 <li *ngFor="let post of posts" (click)="emitPost(post)" class="list-group-item">{{post.title}}</li>
             </ul>
-        </div>
+
     `,
     providers: [PostService]
 })

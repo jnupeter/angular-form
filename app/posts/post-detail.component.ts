@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
 import {Post} from './post';
 import {PostService} from './post.service';
+import {Comment} from './comment';
 
 @Component({
     selector : 'post-detail',

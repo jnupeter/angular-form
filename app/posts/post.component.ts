@@ -6,7 +6,7 @@ import {Post} from './post';
 @Component({
     selector: 'post',
     template: `
-        <h2>Post<h2>
+        <h2>Post</h2>
         <div class="container">
            <div class="col-lg-6">
                <post-list (onSelected)="select($event)"></post-list>
