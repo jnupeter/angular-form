@@ -21,7 +21,7 @@ import {Post} from './post';
 })
 export class PostComponent {
 
-  selectedPost : Post = new Post();
+  selectedPost : Post;
 
   select(_post : Post) {
     this.selectedPost = _post;
