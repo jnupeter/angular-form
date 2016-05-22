@@ -2,13 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {GithubService} from './github.service';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
+import {MyLoadComponment} from '../shared/my-loader.component';
 
 @Component({
     selector : 'github-profile',
     template:`
-        <div *ngIf="isLoading">
-            Getting data ........
-        </div>
+        <my-loader [show]="isLoading"></my-loader>
         <div *ngIf="!isLoading">
         <h2>@{{user.login}}</h2>
         <img class="avatar" [src]="user.avatar_url" />
@@ -25,6 +24,7 @@ import 'rxjs/add/observable/forkJoin';
         }
         `
     ],
+    directives: [MyLoadComponment],
     providers : [GithubService]
 })
 export class GithubProfileComponent implements OnInit {

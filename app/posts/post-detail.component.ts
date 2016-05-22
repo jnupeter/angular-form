@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
 import {Post} from './post';
 import {PostService} from './post.service';
 import {Comment} from './comment';
+import {MyLoadComponment} from '../shared/my-loader.component';
 
 @Component({
     selector : 'post-detail',
@@ -13,13 +14,15 @@ import {Comment} from './comment';
   </div>
 </div>
 <h4>Comments</h4>
-<div *ngIf="isLoading">loading comments .... </div>
+
+<my-loader [show]="isLoading"></my-loader>
 <div *ngIf="!isLoading">
     <div class="panel panel-default" *ngFor = "let comment of comments">
         <div class="panel-heading">{{comment.name}}</div>
         <div class="panel-body">{{comment.body}}</div>
     </div>
 </div>`,
+directives: [MyLoadComponment],
     providers : [PostService]
 })
 export class PostDetailComponent implements OnChanges {

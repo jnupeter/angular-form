@@ -1,6 +1,7 @@
 {
   "ambientDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438"
+    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
+    "underscore": "github:DefinitelyTyped/DefinitelyTyped/underscore/underscore.d.ts#669e1b73f18ea6ea15bfbfbbdad6501bfa0ff340"
   }
 }

@@ -8,7 +8,7 @@ import {Post} from './post';
     template: `
         <h2>Post</h2>
         <div class="container">
-           <div class="col-lg-6">
+           <div class="col-md-6 col-lg-6 well">
                <post-list (onSelected)="select($event)"></post-list>
            </div>
            <div class="col-lg-6">
