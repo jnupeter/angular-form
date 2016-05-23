@@ -11,7 +11,7 @@ constructor(private _http : Http) {
 }
 
     getAllUsers() {
-      return this._http.get("http://jsonplaceholder.typicode.com/users")
+      return this._http.get("http://localhost:8001/users")   //http://jsonplaceholder.typicode.com/users
              .map(res => res.json());
     }
 }

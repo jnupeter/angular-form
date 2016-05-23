@@ -10,7 +10,7 @@ export class HttpTestService {
     constructor(private _http : Http){};
 
     getData() : Observable<Item[]> {
-        return this._http.get('http://jsonplaceholder.typicode.com/posts')
+        return this._http.get('http://localhost:8001/posts')
                    .map(res => res.json());
     }
 
